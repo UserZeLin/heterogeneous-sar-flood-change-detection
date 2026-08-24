@@ -1,0 +1,31 @@
+# Copy this file to configs/data.local.yaml and replace every path.
+# data.local.yaml is machine-specific and should not be committed.
+dataset:
+  root: /path/to/hsarfcd-data
+  layout: paired_dirs
+  train:
+    domain_a: translation/train/A
+    domain_b: translation/train/B
+  val:
+    domain_a: translation/val/A
+    domain_b: translation/val/B
+  test:
+    domain_a: translation/test/A
+    domain_b: translation/test/B
+  file_glob: "*.tif"
+  bands_a: [1, 2, 3]
+  bands_b: [1]
+  repeat_single_band: true
+  normalization:
+    mode: percentile
+    lower: 1.0
+    upper: 99.0
+    output_range: [-1.0, 1.0]
+
+# Optional full-scene paths used by translation and change detection.
+scenes:
+  before_reference: /path/to/processed/2022/sentinel_vvvh.tif
+  after_source: /path/to/processed/2024/uavsar_reprojected.tif
+  translated_after: /path/to/outputs/2024_uavsar_to_s1.tif
+  reference_mask: null
+

@@ -1,0 +1,21 @@
+before: /path/to/processed/2022/sentinel_vvvh_normalized.tif
+after: outputs/2024_uavsar_to_s1.tif
+output_dir: outputs/change_detection
+bands: [1, 2, 3]
+gmm:
+  components: 2
+  covariance_type: full
+  max_samples: 500000
+  random_state: 42
+morphology:
+  opening_radius: 1
+  closing_radius: 2
+  min_object_size: 60
+  min_hole_size: 60
+water_mask:
+  enabled: false
+  source: before
+  band: 1
+  method: otsu
+  keep_low_backscatter: true
+

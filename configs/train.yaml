@@ -1,0 +1,22 @@
+seed: 42
+device: cuda
+epochs: 300
+batch_size: 8
+num_workers: 4
+learning_rate: 0.0002
+beta1: 0.5
+beta2: 0.999
+n_critic: 5
+lambda_cycle: 10.0
+lambda_gp: 10.0
+sample_interval: 500
+checkpoint_interval: 10
+output_dir: runs/paper_model
+resume: null
+model:
+  channels: 3
+  base_channels: 64
+  residual_blocks: 9
+  dropout: false
+  checkpoint_blocks: false
+

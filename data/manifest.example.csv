@@ -1,0 +1,5 @@
+scene_id,year,sensor,product_type,polarization,acquisition_date,local_path,role
+aklavik_2022_uavsar,2022,UAVSAR,GRD,HHHH,2022-08-22,/path/to/aklavi_25702_22037_006_220822_L090HHHH_CX_01.grd,domain_b
+aklavik_2022_s1,2022,Sentinel-1,GRDH,VV+VH,2022-10-31,/path/to/S1A_IW_GRDH_1SDV_20221031T022450_20221031T022515_045680_057680_FCA3.SAFE,domain_a
+aklavik_2024_uavsar,2024,UAVSAR,GRD,HHHH,2024-08-18,/path/to/aklavi_25702_24057_004_240818_L090HHHH_CX_01.grd,domain_b
+aklavik_2024_s1,2024,Sentinel-1,GRDH,VV+VH,2024-08-21,/path/to/S1A_IW_GRDH_1SDV_20240821T022450_20240821T022515_055305_06BE3B_DB44.SAFE,domain_a

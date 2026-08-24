@@ -1,0 +1,16 @@
+device: cuda
+direction: B_to_A
+checkpoint: /path/to/checkpoints/best.pt
+input: /path/to/processed/2024/uavsar_reprojected.tif
+output: outputs/2024_uavsar_to_s1.tif
+bands: [1]
+repeat_single_band: true
+tile_size: 256
+overlap: 32
+batch_size: 4
+normalization:
+  mode: percentile
+  lower: 1.0
+  upper: 99.0
+  output_range: [-1.0, 1.0]
+

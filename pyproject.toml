@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hsarfcd"
+version = "1.0.0"
+description = "Cross-image modality flood change detection for Sentinel-1 and UAVSAR"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Ao Meng and contributors"}]
+dependencies = [
+  "numpy>=1.24,<3",
+  "PyYAML>=6.0",
+  "rasterio>=1.3",
+  "scikit-image>=0.21",
+  "scikit-learn>=1.3",
+  "scipy>=1.10",
+  "torch>=2.0",
+  "torchvision>=0.15",
+  "tqdm>=4.65",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "ruff>=0.5"]
+
+[project.scripts]
+hsarfcd-prepare = "hsarfcd.preprocess:main"
+hsarfcd-validate = "hsarfcd.validate:main"
+hsarfcd-train = "hsarfcd.train:main"
+hsarfcd-translate = "hsarfcd.inference:main"
+hsarfcd-detect = "hsarfcd.change_detection:main"
+hsarfcd-evaluate = "hsarfcd.metrics:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

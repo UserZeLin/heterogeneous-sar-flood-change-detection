@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated SPIE paper."
+title: "Heterogeneous SAR Flood Change Detection"
+type: software
+authors:
+  - family-names: Meng
+    given-names: Ao
+  - family-names: Xu
+    given-names: Zhihuo
+  - family-names: Che
+    given-names: Meiqin
+  - family-names: Shao
+    given-names: Yeqin
+  - family-names: Li
+    given-names: Zelin
+  - family-names: Hu
+    given-names: Suxiang
+version: 1.0.0
+date-released: 2026-08-24
+identifiers:
+  - type: doi
+    value: 10.1117/12.3084258
+    description: Associated conference paper
+
