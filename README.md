@@ -1,11 +1,6 @@
 # Heterogeneous SAR Flood Change Detection
 
-可复现的异构 SAR 洪水变化检测代码，对应论文：
 
-> Ao Meng, Zhihuo Xu, Meiqin Che, Yeqin Shao, Zelin Li, and Suxiang Hu,  
-> **Cross-image modality flood change detection based on heterogeneous SAR data**,  
-> Proceedings of SPIE 13791, 137911H (2025).  
-> DOI: [10.1117/12.3084258](https://doi.org/10.1117/12.3084258)
 
 本仓库只包含复现代码、配置和数据清单，**不包含数据集或训练权重**。
 
