@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1460 620" role="img" aria-labelledby="title desc">
+  <title id="title">输入、中间结果与输出文件示意</title>
+  <desc id="desc">展示两个时期输入、跨模态转换结果、变化幅值、GMM 概率以及过滤后二值变化图的关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f9fcff"/>
+      <stop offset="1" stop-color="#edf4fb"/>
+    </linearGradient>
+    <linearGradient id="gray1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#172a3a"/>
+      <stop offset="0.52" stop-color="#738999"/>
+      <stop offset="1" stop-color="#263f52"/>
+    </linearGradient>
+    <linearGradient id="gray2" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0" stop-color="#223745"/>
+      <stop offset="0.52" stop-color="#899da9"/>
+      <stop offset="1" stop-color="#172a3a"/>
+    </linearGradient>
+    <linearGradient id="heat" x1="0" x2="1">
+      <stop offset="0" stop-color="#172a3a"/>
+      <stop offset="0.45" stop-color="#355f8d"/>
+      <stop offset="0.72" stop-color="#f9c74f"/>
+      <stop offset="1" stop-color="#ef476f"/>
+    </linearGradient>
+    <linearGradient id="prob" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0" stop-color="#440154"/>
+      <stop offset="0.48" stop-color="#21918c"/>
+      <stop offset="1" stop-color="#fde725"/>
+    </linearGradient>
+    <pattern id="noise" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="4" r="1" fill="#fff" opacity="0.42"/>
+      <circle cx="12" cy="8" r="1.6" fill="#fff" opacity="0.24"/>
+      <circle cx="6" cy="14" r="1.2" fill="#000" opacity="0.3"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#17324d" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#4d6f88"/>
+    </marker>
+  </defs>
+  <rect width="1460" height="620" rx="22" fill="url(#bg)"/>
+  <text x="730" y="47" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="28" font-weight="700" fill="#17324d">输入 → 模态统一 → 变化判别 → 地理产品</text>
+  <text x="730" y="77" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="14" fill="#607d94">以下为合成纹理示意，不是论文场景、训练数据或实验结果</text>
+
+  <g filter="url(#shadow)">
+    <rect x="34" y="119" width="224" height="395" rx="18" fill="#ffffff" stroke="#a9bece"/>
+    <text x="146" y="153" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="19" font-weight="700" fill="#17324d">输入 1：before</text>
+    <rect x="56" y="176" width="180" height="180" rx="10" fill="url(#gray1)"/>
+    <rect x="56" y="176" width="180" height="180" rx="10" fill="url(#noise)"/>
+    <path d="M56 297 C90 265 111 320 143 280 S200 266 236 300 V356 H56Z" fill="#607d8b" opacity="0.62"/>
+    <path d="M79 176 L108 356" stroke="#d7e2ea" stroke-width="7" opacity="0.45"/>
+    <text x="146" y="388" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="14" fill="#47677f">2022 Sentinel-1</text>
+    <text x="146" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#71879a">sentinel_vvvh_normalized.tif</text>
+    <rect x="57" y="447" width="178" height="40" rx="8" fill="#edf4f8"/>
+    <text x="146" y="472" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="12" fill="#47677f">3 bands · Float32 · CRS</text>
+  </g>
+
+  <line x1="259" y1="316" x2="296" y2="316" stroke="#4d6f88" stroke-width="3" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)">
+    <rect x="302" y="119" width="224" height="395" rx="18" fill="#ffffff" stroke="#d9b878"/>
+    <text x="414" y="153" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="19" font-weight="700" fill="#17324d">输入 2：after</text>
+    <rect x="324" y="176" width="180" height="180" rx="10" fill="url(#gray2)"/>
+    <rect x="324" y="176" width="180" height="180" rx="10" fill="url(#noise)"/>
+    <path d="M324 277 C353 230 384 315 418 260 S469 252 504 279 V356 H324Z" fill="#d7a84f" opacity="0.5"/>
+    <path d="M352 176 L377 356" stroke="#f2dfbb" stroke-width="7" opacity="0.38"/>
+    <text x="414" y="388" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="14" fill="#47677f">2024 UAVSAR</text>
+    <text x="414" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#71879a">uavsar_reprojected.tif</text>
+    <rect x="325" y="447" width="178" height="40" rx="8" fill="#fff5e5"/>
+    <text x="414" y="472" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="12" fill="#715a32">1 band · Float32 · CRS</text>
+  </g>
+
+  <line x1="527" y1="316" x2="564" y2="316" stroke="#4d6f88" stroke-width="3" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)">
+    <rect x="570" y="119" width="224" height="395" rx="18" fill="#ffffff" stroke="#80b9d5"/>
+    <text x="682" y="153" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="19" font-weight="700" fill="#17324d">中间：translated</text>
+    <rect x="592" y="176" width="180" height="180" rx="10" fill="url(#gray1)"/>
+    <rect x="592" y="176" width="180" height="180" rx="10" fill="url(#noise)"/>
+    <path d="M592 277 C621 230 652 315 686 260 S737 252 772 279 V356 H592Z" fill="#6da9c2" opacity="0.56"/>
+    <path d="M620 176 L645 356" stroke="#d7e2ea" stroke-width="7" opacity="0.44"/>
+    <text x="682" y="388" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="14" fill="#47677f">2024 Sentinel-1 样式</text>
+    <text x="682" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#71879a">2024_uavsar_to_s1.tif</text>
+    <rect x="593" y="447" width="178" height="40" rx="8" fill="#e9f5fb"/>
+    <text x="682" y="472" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="12" fill="#315b7d">Generator B→A · [0,1]</text>
+  </g>
+
+  <line x1="795" y1="316" x2="832" y2="316" stroke="#4d6f88" stroke-width="3" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)">
+    <rect x="838" y="119" width="180" height="395" rx="18" fill="#ffffff" stroke="#cf9eb9"/>
+    <text x="928" y="153" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="18" font-weight="700" fill="#17324d">变化幅值</text>
+    <rect x="858" y="176" width="140" height="180" rx="10" fill="url(#heat)"/>
+    <path d="M858 295 C882 260 901 327 927 278 S971 264 998 294 V356 H858Z" fill="#ef476f" opacity="0.72"/>
+    <text x="928" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#71879a">change_magnitude.tif</text>
+    <text x="928" y="416" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="12" fill="#47677f">逐像素多波段差异</text>
+    <rect x="859" y="447" width="138" height="40" rx="8" fill="#f8eaf1"/>
+    <text x="928" y="472" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#75516a">Float32</text>
+  </g>
+
+  <line x1="1019" y1="316" x2="1050" y2="316" stroke="#4d6f88" stroke-width="3" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)">
+    <rect x="1056" y="119" width="180" height="395" rx="18" fill="#ffffff" stroke="#b7ad68"/>
+    <text x="1146" y="153" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="18" font-weight="700" fill="#17324d">GMM 概率</text>
+    <rect x="1076" y="176" width="140" height="180" rx="10" fill="url(#prob)"/>
+    <path d="M1076 295 C1100 260 1119 327 1145 278 S1189 264 1216 294 V356 H1076Z" fill="#fde725" opacity="0.53"/>
+    <text x="1146" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#71879a">change_probability.tif</text>
+    <text x="1146" y="416" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="12" fill="#47677f">高均值分量 = 变化类</text>
+    <rect x="1077" y="447" width="138" height="40" rx="8" fill="#f5f5dc"/>
+    <text x="1146" y="472" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#656039">probability [0,1]</text>
+  </g>
+
+  <line x1="1237" y1="316" x2="1268" y2="316" stroke="#4d6f88" stroke-width="3" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)">
+    <rect x="1274" y="119" width="152" height="395" rx="18" fill="#ffffff" stroke="#e38aa1"/>
+    <text x="1350" y="153" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="18" font-weight="700" fill="#17324d">最终变化图</text>
+    <rect x="1291" y="176" width="118" height="180" rx="10" fill="#152b3c"/>
+    <path d="M1291 296 C1313 262 1327 325 1348 280 S1387 268 1409 296 V356 H1291Z" fill="#ffffff"/>
+    <circle cx="1323" cy="227" r="8" fill="#ffffff"/>
+    <text x="1350" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#71879a">change_filtered_binary.tif</text>
+    <text x="1350" y="416" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="12" fill="#47677f">opening / closing</text>
+    <rect x="1292" y="447" width="116" height="40" rx="8" fill="#ffe9ef"/>
+    <text x="1350" y="472" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="12" fill="#8b3f52">0 / 1 · GeoTIFF</text>
+  </g>
+
+  <text x="730" y="561" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="14" fill="#607d94">before 与 translated-after 必须覆盖相同地理区域；程序会把 after 自动对齐到 before 网格</text>
+  <text x="730" y="588" text-anchor="middle" font-family="Arial, 'Noto Sans SC', sans-serif" font-size="13" fill="#71879a">所有真实输出均保留 CRS 与 transform；视觉颜色仅用于解释数据流</text>
+</svg>
